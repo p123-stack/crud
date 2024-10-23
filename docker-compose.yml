@@ -1,0 +1,47 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: yourdatabase
+      MYSQL_USER: youruser
+      MYSQL_PASSWORD: yourpassword
+    ports:
+      - "3306:3306"
+    networks:
+      - phpbeginners
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  website-app:
+
+    build:
+      context: .
+
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - phpbeginners
+    volumes:
+       - .:/opt/project/
+
+  nginx:
+    image: nginx:latest
+
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - .:/opt/project/
+    networks:
+      - phpbeginners
+    depends_on:
+      - website-app
+volumes:
+  mysql_data:
+networks:
+    phpbeginners:
