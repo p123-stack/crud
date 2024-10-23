@@ -64,7 +64,7 @@
             <tbody>
             <?php
             global $conn;
-            require_once "con.php";
+            require_once "conn.php";
 
             $sql_query = "SELECT * FROM results";
 

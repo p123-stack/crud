@@ -4,7 +4,7 @@ ob_start();
 
 // Start PHP code before any HTML output
 global $conn;
-require_once "con.php";
+require_once "conn.php";
 
 $id = $_GET['id'] ?? null; // Get the ID from the URL, validate as necessary
 

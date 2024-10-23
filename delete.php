@@ -1,7 +1,7 @@
 <?php
 // Include the database connection file
 global $conn;
-require_once "con.php"; // Ensure this file establishes the PDO connection and defines $conn
+require_once "conn.php"; // Ensure this file establishes the PDO connection and defines $conn
 
 // Check if 'id' is present in the GET request
 if (isset($_GET["id"])) {

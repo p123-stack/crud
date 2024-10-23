@@ -1,6 +1,6 @@
 <?php
 global $conn;
-require_once "con.php";  // Assuming this file contains the PDO connection
+require_once "conn.php";  // Assuming this file contains the PDO connection
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
